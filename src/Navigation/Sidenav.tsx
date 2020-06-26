@@ -85,6 +85,8 @@ const useStyles = makeStyles((theme: Theme) =>
             },
         },
         nestedMenu: {
+            display: "grid",
+            gridTemplateRows: "1fr 1fr 1fr",
             maxHeight: 0,
             WebkitTransition: "max-height 0.2s ease-out",
             MozTransition: "max-height 0.2s ease-out",
@@ -95,7 +97,6 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         nestedLink: {
             display: "block",
-            width: "100%",
             margin: theme.spacing(1, 0),
             textAlign: "right",
             padding: theme.spacing(1),
@@ -172,7 +173,6 @@ const Sidenav: React.FC = () => {
                             console.log("Scroll into view");
                         }}
                         className={classes.nestedLink}
-                        color="secondary"
                     >
                         Bio
                     </Button>
@@ -181,7 +181,6 @@ const Sidenav: React.FC = () => {
                             console.log("Scroll into view");
                         }}
                         className={classes.nestedLink}
-                        color="secondary"
                     >
                         Hobbies
                     </Button>
@@ -190,7 +189,6 @@ const Sidenav: React.FC = () => {
                             console.log("Scroll into view");
                         }}
                         className={classes.nestedLink}
-                        color="secondary"
                     >
                         Previous job experience
                     </Button>
@@ -206,15 +204,21 @@ const Sidenav: React.FC = () => {
                     Projects
                 </NavLink>
                 <div className={clsx("nested", classes.nestedMenu)}>
-                    <Link className={classes.nestedLink} href="#">
+                    <Button onClick={() => {
+                        console.log("Scroll into view")
+                    }} href="#">
                         Test
-                    </Link>
-                    <Link className={classes.nestedLink} href="#">
+                    </Button>
+                    <Button onClick={() => {
+                        console.log("Scroll into view")
+                    }} href="#">
                         Test1
-                    </Link>
-                    <Link className={classes.nestedLink} href="#">
+                    </Button>
+                    <Button onClick={() => {
+                        console.log("Scroll into view")
+                    }} href="#">
                         Test2
-                    </Link>
+                    </Button>
                 </div>
                 <NavLink
                     className={classes.btn}
@@ -227,15 +231,21 @@ const Sidenav: React.FC = () => {
                     Contact
                 </NavLink>
                 <div className={clsx("nested", classes.nestedMenu)}>
-                    <Link className={classes.nestedLink} href="#">
+                    <Button onClick={() => {
+                        console.log("Scroll into view")
+                    }} className={classes.nestedLink} href="#">
                         Test
-                    </Link>
-                    <Link className={classes.nestedLink} href="#">
+                    </Button>
+                    <Button onClick={() => {
+                        console.log("Scroll into view")
+                    }} className={classes.nestedLink} href="#">
                         Test1
-                    </Link>
-                    <Link className={classes.nestedLink} href="#">
+                    </Button>
+                    <Button onClick={() => {
+                        console.log("Scroll into view")
+                    }} className={classes.nestedLink} href="#">
                         Test2
-                    </Link>
+                    </Button>
                 </div>
             </div>
         </div>

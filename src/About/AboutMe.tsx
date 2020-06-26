@@ -11,6 +11,8 @@ const AboutMeSections = [
 const useStyles = makeStyles((theme: Theme) => ({
     root: {
         overflow: "auto",
+        height: "100%",
+        padding: theme.spacing(2)
     },
     section: {
         height: 500,

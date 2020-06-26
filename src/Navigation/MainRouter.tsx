@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme: Theme) =>
         container: {
             color: theme.palette.text.primary,
             display: "grid",
+            height: "100%",
             gridTemplateRows: "64px calc(100% - 64px)",
             gridTemplateColumns: "340px calc(100% - 340px)",
             
@@ -24,7 +25,14 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         content: {
             gridRow: 2,
-            padding: theme.spacing(2),
+            gridColumn: 2,
+            overflow: "hidden",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            
         },
     })
 );

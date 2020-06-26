@@ -21,6 +21,8 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         title: {
             gridColumn: 2,
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr 1fr",
         },
         btn: {
             margin: theme.spacing(0, 1),
