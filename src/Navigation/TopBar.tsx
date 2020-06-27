@@ -1,12 +1,11 @@
 import React from "react";
-import Menu from "@material-ui/icons/Menu";
 import { NavLink } from "react-router-dom";
-import IconButton from "@material-ui/core/IconButton";
 import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
 import { makeStyles, Theme, createStyles, Typography } from "@material-ui/core";
 import clsx from "clsx";
 import Resume from "./Nathan_Kartchner_Resume.pdf";
 import ContactMenu from "../Contact/ContactMenu";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -17,16 +16,13 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "grid",
       alignItems: "center",
       justifyContent: "center",
-      gridTemplateColumns: "1fr 1fr 1fr",
+      gridTemplateColumns: "1fr 2fr",
     },
-    menu: {
-      gridColumn: 1,
-      marginLeft: theme.spacing(1),
-      justifySelf: "flex-start",
-    },
-    title: {
+
+    navMenu: {
       gridColumn: 2,
       display: "grid",
+      gridRow: 1,
       alignItems: "center",
       maxHeight: 36,
       gridTemplateColumns: "1fr 1fr 1fr 1fr",
@@ -90,10 +86,16 @@ const useStyles = makeStyles((theme: Theme) =>
     menuOpen: {
       borderBottom: "4px solid " + theme.palette.info.light,
     },
+    name: {
+      marginLeft: theme.spacing(1),
+      gridRow: 1,
+      gridColumn: 1,
+    },
   })
 );
 
 const TopBar: React.FC = () => {
+  const matches = useMediaQuery("(min-width:764px)");
   const classes = useStyles();
   const [contactMenu, setContact] = React.useState<boolean>(false);
   const handleClose = () => {
@@ -101,10 +103,13 @@ const TopBar: React.FC = () => {
   };
   return (
     <div className={classes.root}>
-      <IconButton size="medium" className={classes.menu} color="secondary">
-        <Menu />
-      </IconButton>
-      <div className={classes.title}>
+      {matches && (
+        <div className={classes.name}>
+          <Typography variant="button">Nathan Kartchner</Typography>
+          <Typography variant="body2">Full Stack Web Developer</Typography>
+        </div>
+      )}
+      <div className={classes.navMenu}>
         <NavLink
           className={clsx(classes.btn, classes.about)}
           activeClassName={classes.selected}

@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     padding: theme.spacing(0, 2),
   },
   section: {
-    height: 500,
+    minHeight: 500,
   },
 }));
 const AboutMe: React.FC = () => {
@@ -27,7 +27,37 @@ const AboutMe: React.FC = () => {
       <h1>About me page</h1>
       {AboutMeSections.map((section) => (
         <div key={section} id={section} className={classes.section}>
-          {section}
+          <h4>{section}</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
+            suscipit. Nesciunt, sed culpa qui illo pariatur neque esse. Error
+            magni aperiam ex nesciunt corporis tempore harum ullam dolorum
+            voluptas obcaecati.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
+            suscipit. Nesciunt, sed culpa qui illo pariatur neque esse. Error
+            magni aperiam ex nesciunt corporis tempore harum ullam dolorum
+            voluptas obcaecati.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
+            suscipit. Nesciunt, sed culpa qui illo pariatur neque esse. Error
+            magni aperiam ex nesciunt corporis tempore harum ullam dolorum
+            voluptas obcaecati.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
+            suscipit. Nesciunt, sed culpa qui illo pariatur neque esse. Error
+            magni aperiam ex nesciunt corporis tempore harum ullam dolorum
+            voluptas obcaecati.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
+            suscipit. Nesciunt, sed culpa qui illo pariatur neque esse. Error
+            magni aperiam ex nesciunt corporis tempore harum ullam dolorum
+            voluptas obcaecati.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
+            suscipit. Nesciunt, sed culpa qui illo pariatur neque esse. Error
+            magni aperiam ex nesciunt corporis tempore harum ullam dolorum
+            voluptas obcaecati.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,
+            suscipit. Nesciunt, sed culpa qui illo pariatur neque esse. Error
+            magni aperiam ex nesciunt corporis tempore harum ullam dolorum
+            voluptas obcaecati.
+          </p>
         </div>
       ))}
     </div>

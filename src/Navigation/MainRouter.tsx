@@ -1,7 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Landing from "../Home/Landing";
-import Header from "./Header";
 import Routes from "./Routes";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import TopBar from "./TopBar";
@@ -24,7 +23,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     mainContent: {
       gridRow: 2,
-      gridColumn: 2,
       position: "absolute",
       top: 0,
       left: 0,
@@ -47,7 +45,6 @@ const MainRouter = () => {
         <Route path="*">
           <div className={classes.container}>
             <TopBar />
-            <Header />
             <div className={classes.mainContent}>
               <Switch>
                 {Object.values(Routes).map(({ Component, path }, i) => (
