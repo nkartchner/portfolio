@@ -3,9 +3,12 @@ import { NavLink } from "react-router-dom";
 import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
 import { makeStyles, Theme, createStyles, Typography } from "@material-ui/core";
 import clsx from "clsx";
-import Resume from "./Nathan_Kartchner_Resume.pdf";
+import MenuIcon from "@material-ui/icons/Menu";
+import IconButton from "@material-ui/core/IconButton";
+import Arrow from "@material-ui/icons/ArrowBackTwoTone";
 import ContactMenu from "../Contact/ContactMenu";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import MobileNavMenu from "./Menus/MobileNavMenu";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -16,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "grid",
       alignItems: "center",
       justifyContent: "center",
-      gridTemplateColumns: "1fr 2fr",
+      gridTemplateColumns: "4fr 1fr",
     },
 
     navMenu: {
@@ -25,7 +28,12 @@ const useStyles = makeStyles((theme: Theme) =>
       gridRow: 1,
       alignItems: "center",
       maxHeight: 36,
-      gridTemplateColumns: "1fr 1fr 1fr 1fr",
+      gridTemplateColumns: "repeat(4, max-content)",
+      "&.mobile": {
+        gridTemplateColumns: "auto",
+        maxHeight: "100%",
+        position: "relative",
+      },
     },
     btn: {
       margin: theme.spacing(0, 1),
@@ -43,7 +51,7 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: "center",
       WebkitAppearance: "none",
       WebkitTapHighlightColor: "transparent",
-      minWidth: 64,
+      width: "fit-content",
       height: 24,
       transition:
         "background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
@@ -58,6 +66,8 @@ const useStyles = makeStyles((theme: Theme) =>
     resumeBtn: {
       display: "flex",
       gridColumn: 4,
+      height: "auto",
+      fontSize: theme.typography.fontSize,
       width: "fit-content",
       backgroundColor: theme.palette.success.main,
       padding: theme.spacing("6px", 2),
@@ -79,7 +89,7 @@ const useStyles = makeStyles((theme: Theme) =>
       position: "absolute",
       left: 0,
       top: 35,
-      zIndex: 4,
+      zIndex: 12,
       padding: theme.spacing(1),
       gridAutoColumns: "auto",
     },
@@ -91,62 +101,154 @@ const useStyles = makeStyles((theme: Theme) =>
       gridRow: 1,
       gridColumn: 1,
     },
+    iFrame: {
+      position: "fixed",
+      top: 0,
+      bottom: 0,
+      right: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      border: 0,
+      zIndex: 100000,
+    },
+    pdfHeader: {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      right: 0,
+      height: 64,
+      zIndex: 100001,
+    },
+    pdfControls: {
+      position: "absolute",
+      top: 50,
+      left: 15,
+    },
   })
 );
 
 const TopBar: React.FC = () => {
   const matches = useMediaQuery("(min-width:764px)");
   const classes = useStyles();
+  const [viewResume, openResume] = React.useState<boolean>(false);
+  const [showControls, setShowControls] = React.useState<boolean>(false);
   const [contactMenu, setContact] = React.useState<boolean>(false);
+  const [mobileMenu, setMobileMenuIsOpen] = React.useState<boolean>(false);
+
   const handleClose = () => {
+    setMobileMenuIsOpen(false);
     setContact(false);
   };
+
+  const handleOpenMobileMenu = () => {
+    setMobileMenuIsOpen(true);
+  };
+
+  const handleOpenResume = () => {
+    openResume(true);
+  };
+
+  const handleCloseResume = () => {
+    openResume(false);
+    setShowControls(false);
+  };
+
+  const mobileView = (
+    <div className={clsx(classes.navMenu, "mobile")}>
+      <IconButton onClick={handleOpenMobileMenu}>
+        <MenuIcon />
+      </IconButton>
+      {mobileMenu && (
+        <MobileNavMenu close={handleClose} openResume={handleOpenResume} />
+      )}
+    </div>
+  );
+
+  const desktopView = (
+    <div className={classes.navMenu}>
+      <NavLink
+        className={clsx(classes.btn, classes.about)}
+        activeClassName={classes.selected}
+        to="/about"
+      >
+        About
+      </NavLink>
+      <NavLink
+        className={clsx(classes.btn, classes.projects)}
+        activeClassName={classes.selected}
+        to="/projects"
+      >
+        Projects
+      </NavLink>
+      <Typography
+        variant="body1"
+        component="div"
+        className={clsx(classes.btn, classes.contact, {
+          [classes.menuOpen]: contactMenu,
+        })}
+        onClick={() => setContact(true)}
+      >
+        Contact
+        {contactMenu && (
+          <div className={classes.contactMenu}>
+            <ContactMenu close={handleClose} />
+          </div>
+        )}
+      </Typography>
+      <button
+        onClick={() => openResume(true)}
+        className={clsx(classes.btn, classes.resumeBtn)}
+      >
+        <CloudDownloadIcon className={classes.cloudIcon} /> Resum&eacute;
+      </button>
+    </div>
+  );
+  const handleKeydown = React.useCallback(
+    ({ keyCode }: KeyboardEvent) => {
+      if (keyCode === 27) openResume(false);
+    },
+    [openResume]
+  );
+
+  React.useEffect(() => {
+    if (viewResume) {
+      document.addEventListener("keydown", handleKeydown);
+      return () => document.removeEventListener("keydown", handleKeydown);
+    }
+  }, [viewResume, handleKeydown]);
+
   return (
     <div className={classes.root}>
-      {matches && (
-        <div className={classes.name}>
-          <Typography variant="button">Nathan Kartchner</Typography>
-          <Typography variant="body2">Full Stack Web Developer</Typography>
-        </div>
-      )}
-      <div className={classes.navMenu}>
-        <NavLink
-          className={clsx(classes.btn, classes.about)}
-          activeClassName={classes.selected}
-          to="/about"
-        >
-          About
-        </NavLink>
-        <NavLink
-          className={clsx(classes.btn, classes.projects)}
-          activeClassName={classes.selected}
-          to="/projects"
-        >
-          Projects
-        </NavLink>
-        <Typography
-          variant="body1"
-          component="div"
-          className={clsx(classes.btn, classes.contact, {
-            [classes.menuOpen]: contactMenu,
-          })}
-          onClick={() => setContact(true)}
-        >
-          Contact
-          {contactMenu && (
-            <div className={classes.contactMenu}>
-              <ContactMenu close={handleClose} />
+      <div className={classes.name}>
+        <Typography variant="button">Nathan Kartchner</Typography>
+        <Typography variant="body2">Full Stack Web Developer</Typography>
+      </div>
+      {matches ? desktopView : mobileView}
+
+      {viewResume && (
+        <>
+          {showControls && (
+            <div className={classes.pdfHeader}>
+              <IconButton
+                color="secondary"
+                onClick={handleCloseResume}
+                className={classes.pdfControls}
+              >
+                <Arrow fontSize="large" />
+              </IconButton>
             </div>
           )}
-        </Typography>
-        <a
-          download
-          href={Resume}
-          className={clsx(classes.btn, classes.resumeBtn)}
-        >
-          <CloudDownloadIcon className={classes.cloudIcon} /> Resum&eacute;
-        </a>
-      </div>
+          <iframe
+            src="https://nkartchner.s3-us-west-2.amazonaws.com/Nathan_Kartchner_Resume.pdf"
+            className={classes.iFrame}
+            typeof="application/pdf"
+            
+            onLoad={() => setShowControls(true)}
+            title="resume"
+          />
+        </>
+      )}
     </div>
   );
 };

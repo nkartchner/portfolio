@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "grid",
       height: "100%",
       gridTemplateRows: "64px calc(100% - 64px)",
-
+      gridTemplateColumns: "100%",
       background: theme.palette.background.paper,
       position: "relative",
     },

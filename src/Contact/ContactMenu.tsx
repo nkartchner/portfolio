@@ -42,7 +42,6 @@ interface Props {
 
 const ContactMenu: React.FC<Props> = ({ close }) => {
   const classes = useStyles();
-
   const [hasCoppied, setHasCoppied] = React.useState<boolean>(false);
   const [isHovering, setIsHovering] = React.useState<boolean>(false);
 
@@ -58,6 +57,7 @@ const ContactMenu: React.FC<Props> = ({ close }) => {
       ) {
         return false;
       }
+
       return close();
     },
     [close]
@@ -69,7 +69,7 @@ const ContactMenu: React.FC<Props> = ({ close }) => {
   }, [handleClose]);
 
   return (
-    <Paper id="contact-menu" className={classes.menu}>
+    <Paper id="contact-menu" className={classes.menu} elevation={9}>
       <IconButton
         onMouseLeave={() => {
           setIsHovering(false);
