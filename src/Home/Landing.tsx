@@ -68,7 +68,11 @@ const Landing: React.FC = () => {
                     <h1>Hello,</h1>
                     <h2>I'm Nathan</h2>
                     <h2>Full Stack Developer</h2>
-                    <Button color="secondary" variant="outlined" href="/portfolio/about">
+                    <Button
+                        color="secondary"
+                        variant="outlined"
+                        href={`/${process.env.PUBLIC_URL}/about`}
+                    >
                         Click to enter
                     </Button>
                 </div>
