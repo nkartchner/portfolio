@@ -67,8 +67,8 @@ const Landing: React.FC = () => {
                 <div className={classes.text}>
                     <h1>Hello,</h1>
                     <h2>I'm Nathan</h2>
-                    <h2>Full Stack Baller</h2>
-                    <Button color="primary" variant="text" href="/about">
+                    <h2>Full Stack Developer</h2>
+                    <Button color="secondary" variant="outlined" href="/about">
                         Click to enter
                     </Button>
                 </div>
