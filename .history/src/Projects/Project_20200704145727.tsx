@@ -45,23 +45,9 @@ const useStyles = makeStyles((theme: Theme) =>
       flexFlow: "row wrap",
       justifyContent: "space-around",
     },
-    actions: {
-      display: "grid",
-      gridTemplateColumns: "1fr 1fr 1fr",
-    },
-    webLink: {
-      justifySelf: "start",
-    },
-    details: {
-      justifySelf: "end",
-    },
-    tech: {
-      justifySelf: "center",
-    },
     techIcon: {
       height: 35,
       width: 35,
-      userSelect: "none",
       padding: theme.spacing(1),
     },
   })
@@ -149,21 +135,20 @@ const Project: React.FC<IProps> = ({ Avatar, ...props }) => {
           {props.shortDesc}
         </Typography>
       </CardContent>
-      <CardActions className={classes.actions}>
+      <CardActions disableSpacing>
         {props.links.github && (
-          <IconButton className={classes.webLink} href={props.links.github}>
+          <IconButton href={props.links.github}>
             <GitHub />
           </IconButton>
         )}
         {props.links.website && (
-          <IconButton className={classes.webLink} href={props.links.website}>
+          <IconButton href={props.links.website}>
             <OpenInBrowser />
           </IconButton>
         )}
 
         {props.longDesc && (
           <Button
-            className={classes.details}
             onClick={handleExpandClick}
             aria-expanded={expanded}
             aria-label="show more"
@@ -177,7 +162,6 @@ const Project: React.FC<IProps> = ({ Avatar, ...props }) => {
           </Button>
         )}
         <Button
-          className={classes.tech}
           onClick={handleExpandTech}
           aria-expanded={expandedTech}
           aria-label="show more"

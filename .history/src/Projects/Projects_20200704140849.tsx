@@ -55,27 +55,18 @@ const MyProjects: IProps[] = [
       </Typography>
     ),
     longDesc: (
-      <Typography variant="body2" component="p">
-        The idea for Repairsage was to create Kanban based system that would
-        allow an auto repair center to see, predict and, manage the production
-        in real time. Repairsage is equipped with email updates, push
-        notifications, and is a PWA. The UI of Repairsage is built using
-        Angular-Material and with the help of the CDK Drag-and-Drop component
-        with a custom autoscroller, we're able to create a Kanban board. Mix
-        that with SocketIO to generate real-time updates for every board while
-        using rooms to keep each board separate. One of the most important
-        features of Repairsage is the ability to assign a technician to a column
-        and an efficiency rating per department. Once a technician is assigned a
-        column on a board, their will be letters representing the name of each
-        department. The number following the department(s) they are assigned to
-        will change color and, based on a 40 hour work week, the color will be
-        Green, Orange, or Red to indicate the load level for their week. We
-        currently have an instance of Repairsage launched that we use as a demo.
-        Feel free to check it out!
+      <Typography variant="body1" component="p">
+        We currently have an instance of Repairsage launched that we use as a
+        demo. Repairsage SocketIO is used to accomplish real-time updates for
+        every board while using rooms to keep each board separate. One of the
+        most important features of Repairsage is the ability to assign a
+        technician to a column and an efficiency rating that will visually show,
+        based on a 40 hour their column the appropriate color. work week, the
+        technicians workload by changing the numbers in
       </Typography>
     ),
     inProgress: true,
-    Avatar: TechIcons.Angular10,
+    avatar: TechIcons.Angular10,
     startDate: new Date(Date.parse("02/01/2019")),
     technologies: [
       TechIcons.Angular10,
@@ -108,7 +99,7 @@ const MyProjects: IProps[] = [
         in-game tech tree. I decided to use HTML5 canvas and add tooltips.
       </Typography>
     ),
-    Avatar: TechIcons.React,
+    avatar: TechIcons.React,
     startDate: new Date(Date.parse("04/05/2020")),
     technologies: [
       TechIcons.React,
@@ -133,7 +124,7 @@ const MyProjects: IProps[] = [
       </Typography>
     ),
     startDate: new Date(Date.parse("04/05/2020")),
-    Avatar: TechIcons.CSharp,
+    avatar: TechIcons.CSharp,
     technologies: [TechIcons.CSharp, TechIcons.Razor, TechIcons.MySql],
     inProgress: false,
     links: {
@@ -151,7 +142,7 @@ const MyProjects: IProps[] = [
     ),
     startDate: new Date(Date.parse("04/05/2020")),
     technologies: [TechIcons.React, TechIcons.SocketIO, TechIcons.Js],
-    Avatar: TechIcons.React,
+    avatar: TechIcons.React,
     inProgress: false,
     links: {
       github: "https://github.com/nkartchner/ReactChat",
@@ -167,7 +158,7 @@ const MyProjects: IProps[] = [
         Javascript stack
       </Typography>
     ),
-    Avatar: TechIcons.Js,
+    avatar: TechIcons.Js,
     inProgress: false,
     startDate: new Date(Date.parse("01/01/2020")),
     technologies: [TechIcons.Js, TechIcons.Express, TechIcons.Mongo],

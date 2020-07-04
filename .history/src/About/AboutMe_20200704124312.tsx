@@ -44,9 +44,6 @@ const useStyles = makeStyles((theme: Theme) => ({
       gridRow: 2,
       gridColumn: 1,
     },
-    "& > *":{
-      marginBottom: theme.spacing(2)
-    }
   },
   technologies: {
     display: "grid",
@@ -78,12 +75,6 @@ const useStyles = makeStyles((theme: Theme) => ({
 const AboutMe: React.FC = () => {
   const classes = useStyles();
 
-  const projects = (
-    <NavLink style={{ color: "lightblue" }} to="/projects">
-      projects
-    </NavLink>
-  );
-
   return (
     <div className={classes.root}>
       <Paper elevation={8} className={classes.about}>
@@ -94,22 +85,17 @@ const AboutMe: React.FC = () => {
             added. I was a mechanic for 9 years at Haury's Lake City Collision
             with a passion for both cars, and computers. This passion drew me
             towards becoming a certified tuner for high performance applications
-            and soon after, I realized my passion for software development and
-            decided to switch careers.
-          </Typography>
-          <Typography variant="body1" component="p">
+            and soon after, I realized my passion for software development.
             After my completion at Coding Dojo, I immediately teamed up with
-            Haurys's as a consultant building an enterprise application for the
-            automotive repair industry. I've been able to apply my 9 years of
-            knowledge in the industry to create a real-time production workflow
-            management application, Repairsage. You can read more about, and
-            demo, Repairsage in my {projects} page.
-          </Typography>
-          <Typography variant="body1" component="p">
-            I thrive to learn the how things function together as a unit. My
-            attention to detail is second to none, and my actions demonstrate
-            that I am principled and operate from a platform of integrity in
-            everything I do.
+            Haurys's as a consultant to build an enterprise application for the
+            automotive industry
+            <NavLink style={{ color: "lightblue" }} to="/projects">
+              projects
+            </NavLink>{" "}
+            page. Shortly after I graduating, I joined the Coding Dojo team as a
+            Lead Instructor where I taught students as well as contributing to
+            the upkeep of the curriculum and collaborating with a small team to
+            write a full MERN stack curriculum.
           </Typography>
         </div>
       </Paper>
@@ -117,7 +103,7 @@ const AboutMe: React.FC = () => {
       <Paper elevation={8} className={classes.technologies}>
         <Typography variant="h4">Technologies</Typography>
         <div className={classes.technologyIcons}>
-          {Object.values(TechnologyIcons).map((icon) => (
+          {TechnologyIcons.map((icon) => (
             <Tooltip {...icon} key={icon.alt} />
           ))}
         </div>

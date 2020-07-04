@@ -18,17 +18,17 @@ interface IRoutes {
 const Routes: IRoutes = {
   About: {
     Component: About,
-    path: `/about`,
+    path: `/${process.env.PUBLIC_URL}/about`,
     title: "About Me",
   },
   Contact: {
     Component: Contact,
-    path: `/contact`,
+    path: `/${process.env.PUBLIC_URL}/contact`,
     title: "Contact Info",
   },
   Projects: {
     Component: Projects,
-    path: `/projects`,
+    path: `/${process.env.PUBLIC_URL}/projects`,
     title: "Projects",
   },
 };

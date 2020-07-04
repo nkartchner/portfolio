@@ -48,34 +48,20 @@ interface Project {
 const MyProjects: IProps[] = [
   {
     title: "Repairsage (WIP)",
-    shortDesc: (
-      <Typography variant="body1">
-        Real-time Kanban based production workflow/management application for
-        the automotive repair industry.
-      </Typography>
-    ),
+    shortDesc: `Real-time Kanban based production workflow/management application for the automotive repair industry.`,
     longDesc: (
-      <Typography variant="body2" component="p">
-        The idea for Repairsage was to create Kanban based system that would
-        allow an auto repair center to see, predict and, manage the production
-        in real time. Repairsage is equipped with email updates, push
-        notifications, and is a PWA. The UI of Repairsage is built using
-        Angular-Material and with the help of the CDK Drag-and-Drop component
-        with a custom autoscroller, we're able to create a Kanban board. Mix
-        that with SocketIO to generate real-time updates for every board while
-        using rooms to keep each board separate. One of the most important
-        features of Repairsage is the ability to assign a technician to a column
-        and an efficiency rating per department. Once a technician is assigned a
-        column on a board, their will be letters representing the name of each
-        department. The number following the department(s) they are assigned to
-        will change color and, based on a 40 hour work week, the color will be
-        Green, Orange, or Red to indicate the load level for their week. We
-        currently have an instance of Repairsage launched that we use as a demo.
-        Feel free to check it out!
+      <Typography variant="body1" component="p">
+        We currently have an instance of Repairsage launched that we use as a
+        demo. Repairsage SocketIO is used to accomplish real-time updates for
+        every board while using rooms to keep each board separate. One of the
+        most important features of Repairsage is the ability to assign a
+        technician to a column and an efficiency rating that will visually show,
+        based on a 40 hour their column the appropriate color. work week, the
+        technicians workload by changing the numbers in
       </Typography>
     ),
     inProgress: true,
-    Avatar: TechIcons.Angular10,
+    highlight: true,
     startDate: new Date(Date.parse("02/01/2019")),
     technologies: [
       TechIcons.Angular10,
@@ -85,7 +71,6 @@ const MyProjects: IProps[] = [
       TechIcons.Scss,
       TechIcons.SocketIO,
       TechIcons.Typescript,
-      TechIcons.Aws,
     ],
     links: {
       website: "https://314solutions.info",
@@ -94,30 +79,25 @@ const MyProjects: IProps[] = [
   },
   {
     title: "Last Oasis Clan Manager (WIP)",
-    shortDesc: (
-      <Typography variant="body1">
-        Clan manager application for Last Oasis
-      </Typography>
-    ),
+    shortDesc: `Clan manager application for Last Oasis`,
     longDesc: (
       <Typography variant="body1" component="p">
-        I wanted to build a project using React + Redux and C# as the back end.
-        I ended up choosing a Clan manager application for a recently released
-        game that I really enjoyed, Last Oasis. It quickly grew into something
-        more than just a clan manager as wanted add a feature that recreated the
-        in-game tech tree. I decided to use HTML5 canvas and add tooltips.
+        `I wanted to build a project using C# + React so I chose to do a Clan
+        manager application for a recently released game that I really enjoyed,
+        Last Oasis. It quickly grew into something more than just a clan manager
+        as wanted add a feature that recreated the in-game tech tree. I decided
+        to use HTML5 canvas and add tooltips.`
       </Typography>
     ),
-    Avatar: TechIcons.React,
     startDate: new Date(Date.parse("04/05/2020")),
     technologies: [
       TechIcons.React,
-      TechIcons.Redux,
       TechIcons.CSharp,
       TechIcons.MySql,
       TechIcons.Scss,
       TechIcons.Js,
     ],
+    highlight: false,
     inProgress: true,
     links: {
       github: "https://github.com/nkartchner/LastOasis_ClanManager",
@@ -126,15 +106,10 @@ const MyProjects: IProps[] = [
   },
   {
     title: "Car Dashboard",
-    shortDesc: (
-      <Typography variant="body1">
-        A simple application that I made with a group of students to show how to
-        do a many to many relationship with C# MVC
-      </Typography>
-    ),
+    shortDesc: `A simple application that I made with a group of students to show how to do a many to many relationship with C# MVC`,
     startDate: new Date(Date.parse("04/05/2020")),
-    Avatar: TechIcons.CSharp,
-    technologies: [TechIcons.CSharp, TechIcons.Razor, TechIcons.MySql],
+    technologies: [],
+    highlight: false,
     inProgress: false,
     links: {
       github: "https://github.com/nkartchner/CarsDashboard",
@@ -143,15 +118,10 @@ const MyProjects: IProps[] = [
   },
   {
     title: "React Chat App",
-    shortDesc: (
-      <Typography variant="body1">
-        An application that I made to learn how to integrate SocketIO with
-        React.
-      </Typography>
-    ),
+    shortDesc: `An application that I made while learning how to integrate SocketIO with React.`,
     startDate: new Date(Date.parse("04/05/2020")),
-    technologies: [TechIcons.React, TechIcons.SocketIO, TechIcons.Js],
-    Avatar: TechIcons.React,
+    technologies: [],
+    highlight: false,
     inProgress: false,
     links: {
       github: "https://github.com/nkartchner/ReactChat",
@@ -160,17 +130,17 @@ const MyProjects: IProps[] = [
   },
   {
     title: "Message Board",
-    shortDesc: <Typography variant="body1">Simple Message Board</Typography>,
+    shortDesc: `Simple Message Board`,
     longDesc: (
       <Typography variant="body1" component="p">
         One of my very first applications I made as I went through the
         Javascript stack
       </Typography>
     ),
-    Avatar: TechIcons.Js,
     inProgress: false,
+    highlight: false,
     startDate: new Date(Date.parse("01/01/2020")),
-    technologies: [TechIcons.Js, TechIcons.Express, TechIcons.Mongo],
+    technologies: [],
     links: {
       github: "https://github.com/nkartchner/MessageBoard",
     },

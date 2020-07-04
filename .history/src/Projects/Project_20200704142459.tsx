@@ -8,7 +8,6 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
-import Button from "@material-ui/core/Button";
 import GitHub from "@material-ui/icons/GitHub";
 import Typography from "@material-ui/core/Typography";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -39,30 +38,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     avatar: {
       backgroundColor: red[500],
-    },
-    technologies: {
-      display: "flex",
-      flexFlow: "row wrap",
-      justifyContent: "space-around",
-    },
-    actions: {
-      display: "grid",
-      gridTemplateColumns: "1fr 1fr 1fr",
-    },
-    webLink: {
-      justifySelf: "start",
-    },
-    details: {
-      justifySelf: "end",
-    },
-    tech: {
-      justifySelf: "center",
-    },
-    techIcon: {
-      height: 35,
-      width: 35,
-      userSelect: "none",
-      padding: theme.spacing(1),
     },
   })
 );
@@ -149,57 +124,53 @@ const Project: React.FC<IProps> = ({ Avatar, ...props }) => {
           {props.shortDesc}
         </Typography>
       </CardContent>
-      <CardActions className={classes.actions}>
+      <CardActions disableSpacing>
         {props.links.github && (
-          <IconButton className={classes.webLink} href={props.links.github}>
+          <IconButton href={props.links.github}>
             <GitHub />
           </IconButton>
         )}
         {props.links.website && (
-          <IconButton className={classes.webLink} href={props.links.website}>
+          <IconButton href={props.links.website}>
             <OpenInBrowser />
           </IconButton>
         )}
 
         {props.longDesc && (
-          <Button
-            className={classes.details}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
-          >
-            Details{" "}
-            <ExpandMoreIcon
+          <Tooltip title="description">
+            <IconButton
               className={clsx(classes.expand, {
                 [classes.expandOpen]: expanded,
               })}
-            />
-          </Button>
+              onClick={handleExpandClick}
+              aria-expanded={expanded}
+              aria-label="show more"
+            >
+              <ExpandMoreIcon />
+            </IconButton>
+          </Tooltip>
         )}
-        <Button
-          className={classes.tech}
-          onClick={handleExpandTech}
-          aria-expanded={expandedTech}
-          aria-label="show more"
-        >
-          Tech{" "}
-          <ExpandMoreIcon
+        <Tooltip title="Technologies">
+          <IconButton
             className={clsx(classes.expand, {
               [classes.expandOpen]: expandedTech,
             })}
-          />
-        </Button>
+            onClick={handleExpandTech}
+            aria-expanded={expandedTech}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+        </Tooltip>
       </CardActions>
       {props.technologies && (
         <Collapse in={expandedTech} timeout="auto" unmountOnExit>
           <CardContent>
-            <div className={classes.technologies}>
-              {props.technologies.map((t) => (
-                <Tooltip title={t.alt}>
-                  <img className={classes.techIcon} src={t.src} alt={t.alt} />
-                </Tooltip>
-              ))}
-            </div>
+            {props.technologies.map((t) => (
+              <Tooltip title={t.alt}>
+                <img src={t.src} alt={t.alt} height={35} width={35} />
+              </Tooltip>
+            ))}
           </CardContent>
         </Collapse>
       )}

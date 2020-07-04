@@ -117,7 +117,7 @@ const AboutMe: React.FC = () => {
       <Paper elevation={8} className={classes.technologies}>
         <Typography variant="h4">Technologies</Typography>
         <div className={classes.technologyIcons}>
-          {Object.values(TechnologyIcons).map((icon) => (
+          {TechnologyIcons.map((icon) => (
             <Tooltip {...icon} key={icon.alt} />
           ))}
         </div>
