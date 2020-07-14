@@ -15,15 +15,18 @@ import { red } from "@material-ui/core/colors";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import OpenInBrowser from "@material-ui/icons/OpenInBrowser";
 import StarsIcon from "@material-ui/icons/Stars";
+
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            width: 345,
+            flex: "1 1 400px",
+            maxWidth: 400,
             height: "max-content",
+            marginRight: theme.spacing(2),
+            marginBottom: theme.spacing(2)
         },
         media: {
-            height: 0,
-            paddingTop: "56.25%", // 16:9
+            backgroundSize: "100%",
             transition: "background-image 100ms ease-in-out",
         },
         expand: {
@@ -72,16 +75,18 @@ export interface IProps {
 
 const Project: React.FC<IProps> = (props) => {
     const classes = useStyles();
+
     const [expanded, setExpanded] = React.useState<boolean>(false);
     const [expandedTech, setExpandedTech] = React.useState<boolean>(false);
     const [isHovering, setIsHovering] = React.useState<boolean>(false);
+    const [rotation, setRotation] = React.useState<number>(0);
+
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
     const handleExpandTech = () => {
         setExpandedTech(!expandedTech);
     };
-    const [rotation, setRotation] = React.useState<number>(0);
 
     React.useEffect(() => {
         if (isHovering) {
@@ -122,13 +127,16 @@ const Project: React.FC<IProps> = (props) => {
                     } ${props.startDate.getFullYear()}`}
                 />
             )}
-            <CardMedia
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
-                className={classes.media}
-                image={props.screenshots[rotation]}
-                title={props.title}
-            />
+            {Boolean(props.screenshots.length) && (
+                <CardMedia
+                    onMouseEnter={() => setIsHovering(true)}
+                    onMouseLeave={() => setIsHovering(false)}
+                    component="img"
+                    className={classes.media}
+                    src={props.screenshots[rotation]}
+                    title={props.title}
+                />
+            )}
             <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
                     {props.shortDesc}

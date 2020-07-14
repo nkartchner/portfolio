@@ -21,8 +21,8 @@ const useStyles = makeStyles((theme: Theme) =>
             flexGrow: 1,
             display: "flex",
             flexFlow: "row wrap",
-            "& > *": {
-                marginRight: theme.spacing(3),
+            [theme.breakpoints.down("xs")]: {
+                justifyContent: "center",
             },
         },
         title: {
@@ -37,15 +37,6 @@ const useStyles = makeStyles((theme: Theme) =>
         },
     })
 );
-// const Tasks = [
-//   "Create list of projects I want to present",
-//   "Have a couple projects hosted online, but the rest can be integrated right here",
-//   "Add the ability to filter by technology (USE YOUR ICONS RIGHT HERE)",
-//   `Repairsage is a kanban based (very
-//         similar to Trello) production workflow management application targeted
-//         for the automotive repair industry.`,
-//   "organize technologies by frameworks. Make the filtering system interactive using canvas? or even drag and drop",
-// ];
 
 interface Project {
     uri: string;
@@ -73,7 +64,7 @@ const MyProjects: IProps[] = [
         screenshots: thumbs.rprsageThumbs,
     },
     {
-        title: "Last Oaisis Clan Manager (WIP)",
+        title: "Last Oasis Clan Manager (WIP)",
         shortDesc: `Clan manager application for Last Oasis`,
         longDesc: `This app started off as just a simple clan manager for the game
     Last Oasis. It quickly grew into something more sophisticated as
@@ -128,7 +119,7 @@ const Projects: React.FC = () => {
 
     React.useEffect(() => {
         document.title = "Nathan's Projects";
-    });
+    }, []);
 
     return (
         <div className={classes.root}>

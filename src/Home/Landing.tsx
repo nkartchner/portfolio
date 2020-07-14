@@ -71,7 +71,7 @@ const Landing: React.FC = () => {
                     <Button
                         color="secondary"
                         variant="outlined"
-                        href={`/${process.env.PUBLIC_URL}/about`}
+                        href={`/portfolio/about`}
                     >
                         Click to enter
                     </Button>
@@ -89,10 +89,6 @@ const Landing: React.FC = () => {
                     onLoadedData={handlePlay}
                 >
                     <source src={myVideoWebM} type="video/webm" />
-                    <source
-                        src={myVideoMp4}
-                        type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
-                    />
                     Your browser does not support the video tag
                 </video>
             </div>
