@@ -141,8 +141,8 @@ const AboutMe: React.FC = () => {
                             onClick={handleToggleShortBio}
                         >
                             {shortBio
-                                ? "Click for short bio"
-                                : "Click for long bio"}
+                                ? "Click for long bio"
+                                : "Click for short bio"}
                         </Typography>
                     </div>
                     {shortBio ? (
