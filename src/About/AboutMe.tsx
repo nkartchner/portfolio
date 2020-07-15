@@ -101,10 +101,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
 }));
 const AboutMe: React.FC = () => {
-    const [seeMore, setSeeMore] = React.useState<boolean>(false);
+    const [shortBio, setShortBio] = React.useState<boolean>(true);
     const classes = useStyles();
-    const handleToggleSeeMore = () => {
-        setSeeMore(!seeMore);
+    const handleToggleShortBio = () => {
+        setShortBio(!shortBio);
     };
     React.useEffect(() => {
         document.title = "About Nathan";
@@ -138,14 +138,14 @@ const AboutMe: React.FC = () => {
                     <div className={classes.showMore}>
                         <Typography
                             variant="overline"
-                            onClick={handleToggleSeeMore}
+                            onClick={handleToggleShortBio}
                         >
-                            {seeMore
+                            {shortBio
                                 ? "Click for short bio"
                                 : "Click for long bio"}
                         </Typography>
                     </div>
-                    {seeMore ? (
+                    {shortBio ? (
                         <>
                             <Typography paragraph>
                                 I am versatile Full Stack web developer and a
