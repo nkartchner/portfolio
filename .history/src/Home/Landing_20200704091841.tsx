@@ -1,5 +1,7 @@
 import React from "react";
 import clsx from "clsx";
+import myVideoMp4 from "./media/dyno.mp4";
+import myVideoWebM from "./media/dyno_converted.webm";
 import { makeStyles, createStyles, Theme } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 
@@ -69,7 +71,7 @@ const Landing: React.FC = () => {
                     <Button
                         color="secondary"
                         variant="outlined"
-                        href={`/portfolio/about`}
+                        href={`/${process.env.PUBLIC_URL}/about`}
                     >
                         Click to enter
                     </Button>
@@ -86,14 +88,12 @@ const Landing: React.FC = () => {
                     disablePictureInPicture={true}
                     onLoadedData={handlePlay}
                 >
+                    <source src={myVideoWebM} type="video/webm" />
                     <source
-                        src="/public/media/dyno_converted.webm"
-                        type="video/webm"
-                    />
-                    <source
-                        src="/public/media/dyno.mp4"
+                        src={myVideoMp4}
                         type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
                     />
+                    Your browser does not support the video tag
                 </video>
             </div>
         </div>

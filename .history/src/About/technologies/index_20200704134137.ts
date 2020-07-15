@@ -17,14 +17,8 @@ import Python from "./python.svg";
 import Razor from "./razor.svg";
 import React from "./react_logo.png";
 import Scss from "./scss.svg";
-import Redux from "./redux.svg";
 import SocketIO from "./socketIO.png";
 import Typescript from "./typescript.svg";
-
-export interface TechIcon {
-  alt: string;
-  src: string;
-}
 
 export default {
   Html: { alt: "Html", src: Html },
@@ -39,7 +33,6 @@ export default {
   SocketIO: { alt: "SocketIO", src: SocketIO },
   MERN: { alt: "MERN", src: MERN },
   React: { alt: "React", src: React },
-  Redux: { alt: "Redux", src: Redux },
   Expo: { alt: "Expo", src: Expo },
   Python: { alt: "Python", src: Python },
   Django: { alt: "Django", src: Django },

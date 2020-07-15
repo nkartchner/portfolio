@@ -1,0 +1,45 @@
+import Angular10 from "./angular_solidBlack.png";
+import Ngrx from "./ngrx.svg";
+import Aws from "./aws.svg";
+import CSharp from "./csharp.svg";
+import Css from "./css.svg";
+import Django from "./django.svg";
+import Expo from "./expo.svg";
+import Express from "./express.png";
+import Git from "./git.svg";
+import Html from "./html.svg";
+import Js from "./js.svg";
+import MERN from "./MERN.png";
+import Mongo from "./mongo.png";
+import MySql from "./mysql.svg";
+import Nginx from "./nginx.svg";
+import Python from "./python.svg";
+import Razor from "./razor.svg";
+import React from "./react_logo.png";
+import Scss from "./scss.svg";
+import SocketIO from "./socketIO.png";
+import Typescript from "./typescript.svg";
+
+export default [
+  {alt: "Html", src:Html },
+  {alt: "Css", src:Css },
+  {alt: "Scss", src:Scss },
+  {alt: "Js", src:Js },
+  {alt: "Typescript", src:Typescript },
+  {alt: "Angular10", src:Angular10 },
+  {alt: "Ngrx", src:Ngrx },
+  {alt: "Express", src:Express },
+  {alt: "Mongo", src:Mongo },
+  {alt: "SocketIO", src:SocketIO },
+  {alt: "MERN", src:MERN },
+  {alt: "React", src:React },
+  {alt: "Expo", src:Expo },
+  {alt: "Python", src:Python },
+  {alt: "Django", src:Django },
+  {alt: "CSharp", src:CSharp },
+  {alt: "Razor", src:Razor },
+  {alt: "MySql", src:MySql },
+  {alt: "Nginx", src:Nginx },
+  {alt: "Git", src:Git },
+  {alt: "Aws", src:Aws },
+];

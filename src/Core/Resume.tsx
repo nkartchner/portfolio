@@ -67,7 +67,7 @@ const Resume = () => {
                 </div>
             )}
             <iframe
-                src="/public/Nathan_Kartchner_Resume.pdf"
+                src="https://nkartchner.s3-us-west-2.amazonaws.com/Nathan_Kartchner_Resume.pdf"
                 className={classes.iFrame}
                 typeof="application/pdf"
                 onLoad={() => setShowControls(true)}

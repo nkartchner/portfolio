@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles, Theme } from "@material-ui/core/styles";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const useStyles = makeStyles((theme: Theme) => ({
     icon: {
@@ -39,13 +40,28 @@ interface Props {
 const Tooltip: React.FC<Props> = ({ src, alt }) => {
     const classes = useStyles();
     const [isHovering, setIsHovering] = React.useState<boolean>(false);
+    const [isLoaded, setIsLoaded] = React.useState<boolean>(false);
+    React.useLayoutEffect(() => {
+        if (!isLoaded) {
+            const image = new Image();
+            image.src = src;
+            image.alt = alt;
+            image.onload = () => {
+                setIsLoaded(true);
+            };
+        }
+    }, [src, alt, isLoaded]);
     return (
         <div
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
             className={classes.icon}
         >
-            <img src={src} alt={alt} className={classes.iconImg} />
+            {isLoaded ? (
+                <img src={src} alt={alt} className={classes.iconImg} />
+            ) : (
+                <CircularProgress color="primary" />
+            )}
             <div
                 className={classes.tooltip}
                 style={{

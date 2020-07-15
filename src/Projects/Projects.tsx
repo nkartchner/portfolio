@@ -3,6 +3,7 @@ import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import * as thumbs from "./screenshots";
 import Project, { IProps } from "./Project";
+import TechIcons from "../About/technologies";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -47,17 +48,59 @@ interface Project {
 const MyProjects: IProps[] = [
     {
         title: "Repairsage (WIP)",
-        shortDesc: `Kanban based production workflow/management app targeted for the automotive repair industry.`,
-        longDesc: `SocketIO is used to accomplish real-time updates for every board
-      while using rooms to keep each board separate. One of the most
-      important features of Repairsage is the ability to assign a
-      technician to a column and an efficiency rating that will
-      visually show, based on a 40 hour their column the appropriate
-      color. work week, the technicians workload by changing the
-      numbers in`,
+        shortDesc: (
+            <Typography variant="body1">
+                Real-time Kanban production workflow/management application for
+                the automotive repair industry.
+            </Typography>
+        ),
+        longDesc: (className) => {
+            return (
+                <>
+                    <Typography paragraph>
+                        The idea for Repairsage was to create Kanban based
+                        system that would allow an auto repair center to see,
+                        predict and, manage the production in real time.
+                        Repairsage is equipped with email updates, push
+                        notifications, and is a PWA.
+                    </Typography>
+                    <Typography paragraph>
+                        The UI of Repairsage is built using Angular-Material and
+                        with the help of the CDK Drag-and-Drop component and a
+                        custom autoscroller, we're able to create a fully
+                        functional Kanban board. Mix that with SocketIO to
+                        generate real-time updates for every board while using
+                        rooms to keep each board separate.
+                    </Typography>
+                    <Typography paragraph>
+                        One of the most important features of Repairsage is the
+                        ability to assign a technician to a column and an
+                        efficiency rating per department. Once a technician is
+                        assigned a column on a board, their will be letters
+                        representing the name of each department. The number
+                        following the department(s) they are assigned to will
+                        change color and, based on a 40 hour work week, the
+                        color will be Green, Orange, or Red to indicate the load
+                        level for their week. We currently have an instance of
+                        Repairsage launched that we use as a demo. Feel free to
+                        check it out!
+                    </Typography>
+                </>
+            );
+        },
         inProgress: true,
-        highlight: true,
+        Avatar: TechIcons.Angular10,
         startDate: new Date(Date.parse("02/01/2019")),
+        technologies: [
+            TechIcons.Angular10,
+            TechIcons.Ngrx,
+            TechIcons.Express,
+            TechIcons.Mongo,
+            TechIcons.Scss,
+            TechIcons.SocketIO,
+            TechIcons.Typescript,
+            TechIcons.Aws,
+        ],
         links: {
             website: "https://314solutions.info",
         },
@@ -65,25 +108,68 @@ const MyProjects: IProps[] = [
     },
     {
         title: "Last Oasis Clan Manager (WIP)",
-        shortDesc: `Clan manager application for Last Oasis`,
-        longDesc: `This app started off as just a simple clan manager for the game
-    Last Oasis. It quickly grew into something more sophisticated as
-    I also wanted to recreate the in-game tech tree and add tooltips
-    using HTML5 Canvas.`,
+        shortDesc: (
+            <Typography variant="body1">
+                Clan manager application for Last Oasis
+            </Typography>
+        ),
+        longDesc: (className) => (
+            <Typography paragraph>
+                I wanted to build a project using React + Redux and C# as the
+                back end. I ended up choosing a Clan manager application for a
+                recently released game that I really enjoyed, Last Oasis. It
+                quickly grew into something more than just a clan manager as
+                wanted add a feature that recreated the in-game tech tree. I
+                decided to use HTML5 canvas and add tooltips.
+            </Typography>
+        ),
+        Avatar: TechIcons.React,
         startDate: new Date(Date.parse("04/05/2020")),
-        highlight: false,
+        technologies: [
+            TechIcons.React,
+            TechIcons.Redux,
+            TechIcons.CSharp,
+            TechIcons.MySql,
+            TechIcons.Scss,
+            TechIcons.Js,
+        ],
         inProgress: true,
         links: {
-            website: "https://nkartchner.com",
             github: "https://github.com/nkartchner/LastOasis_ClanManager",
         },
         screenshots: thumbs.clanManagerThumbs,
     },
     {
+        title: "Message Board",
+        shortDesc: (
+            <Typography variant="body1">Simple Message Board</Typography>
+        ),
+        longDesc: (className) => (
+            <Typography paragraph>
+                One of my very first applications I made as I went through the
+                Javascript stack
+            </Typography>
+        ),
+        Avatar: TechIcons.Js,
+        inProgress: false,
+        startDate: new Date(Date.parse("01/01/2020")),
+        technologies: [TechIcons.Js, TechIcons.Express, TechIcons.Mongo],
+        links: {
+            github: "https://github.com/nkartchner/MessageBoard",
+        },
+        screenshots: thumbs.messageBoardThumbs,
+    },
+    {
         title: "Car Dashboard",
-        shortDesc: `A simple application that I made with a group of students to show how to do a many to many relationship with C# MVC`,
+        shortDesc: (
+            <Typography variant="body1">
+                A simple application that I made with a group of students to
+                show how to do a many to many relationship with C# MVC
+            </Typography>
+        ),
         startDate: new Date(Date.parse("04/05/2020")),
-        highlight: false,
+        Avatar: TechIcons.CSharp,
+        technologies: [TechIcons.CSharp, TechIcons.Razor, TechIcons.MySql],
         inProgress: false,
         links: {
             github: "https://github.com/nkartchner/CarsDashboard",
@@ -92,26 +178,20 @@ const MyProjects: IProps[] = [
     },
     {
         title: "React Chat App",
-        shortDesc: `An application that I made while learning how to integrate SocketIO with React.`,
+        shortDesc: (
+            <Typography variant="body1">
+                An application that I made to learn how to integrate SocketIO
+                with React.
+            </Typography>
+        ),
         startDate: new Date(Date.parse("04/05/2020")),
-        highlight: false,
+        technologies: [TechIcons.React, TechIcons.SocketIO, TechIcons.Js],
+        Avatar: TechIcons.React,
         inProgress: false,
         links: {
             github: "https://github.com/nkartchner/ReactChat",
         },
         screenshots: [],
-    },
-    {
-        title: "Message Board",
-        shortDesc: `Simple Message Board`,
-        longDesc: `One of my very first applications I made as I went through the Javascript stack`,
-        inProgress: false,
-        highlight: false,
-        startDate: new Date(Date.parse("01/01/2020")),
-        links: {
-            github: "https://github.com/nkartchner/MessageBoard",
-        },
-        screenshots: thumbs.messageBoardThumbs,
     },
 ];
 const Projects: React.FC = () => {
