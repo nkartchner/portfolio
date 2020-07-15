@@ -149,30 +149,13 @@ const AboutMe: React.FC = () => {
                         <>
                             <Typography paragraph>
                                 I am versatile Full Stack web developer and a
-                                powerhouse of value added. I was a mechanic for
-                                9 years at Haury's Lake City Collision with a
-                                passion for both cars, and computers. This
-                                passion drew me towards becoming a certified
-                                tuner for high performance applications and soon
-                                after, I realized my passion for software
-                                development and decided to switch careers.
-                            </Typography>
-                            <Typography paragraph>
-                                After my completion at Coding Dojo, I
-                                immediately teamed up with Haury's as a
-                                consultant building an enterprise application
-                                for the automotive repair industry. I've been
-                                able to apply my 9 years of knowledge in the
-                                industry to create a real-time production
-                                workflow management application, Repairsage. You
-                                can read more about, and demo, Repairsage in my{" "}
-                                {projects} page.
-                            </Typography>
-                            <Typography paragraph>
-                                I thrive to learn the how things function
-                                together as a unit. My attention to detail is
-                                second to none, and my actions demonstrate that
-                                I am principled and operate from a platform of
+                                powerhouse of value added. I am inspired by
+                                excellence, success, and failure. I am a
+                                powerhouse of positivity and value added. I
+                                thrive to learn the how things function together
+                                as a unit. My attention to detail is second to
+                                none, and my actions demonstrate that I am
+                                principled and operate from a platform of
                                 integrity in everything I do.
                             </Typography>
                         </>
@@ -188,18 +171,26 @@ const AboutMe: React.FC = () => {
                             <Typography paragraph>
                                 My love for cars, engines, and the need to know
                                 how things work internally helped lead my
-                                success as a mechanic. I went to school for high
-                                performance tuning which was the gateway that
-                                helped find my passion for programming. After
-                                graduating school as a Full Stack Engineer, I
+                                success as a mechanic. After a short time as a
+                                mechanic, my thirst for more kicked and I
+                                ventured to go back to school for and become
+                                certified in high performance tuning. Due to the
+                                lack of demand, I dabbled in some javascript and
+                                shortly found my passion for programming.
+                            </Typography>
+
+                            <Typography paragraph>
+                                After graduating as a Full Stack Engineer, I
                                 accepted a job as a consultant on an application
                                 that my old job wanted to build, called
-                                Repairsage. Repairsage is a production
-                                management application targeting the automotive
-                                repair industry. My ability to deliver
-                                extraordinary results comes straight from my
-                                ability to convert all my prior industry
-                                experience to code.
+                                Repairsage. Repairsage is a real-time production
+                                management application targeted for the
+                                automotive repair industry. My ability to
+                                deliver extraordinary results comes straight
+                                from my my ability to identify the similarities
+                                between my prior industry experience and my
+                                code. You can read more about, and demo,
+                                Repairsage in my {projects} page.
                             </Typography>
                         </>
                     )}

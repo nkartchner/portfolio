@@ -126,12 +126,12 @@ const MyProjects: IProps[] = [
         Avatar: TechIcons.React,
         startDate: new Date(Date.parse("04/05/2020")),
         technologies: [
-            TechIcons.React,
-            TechIcons.Redux,
             TechIcons.CSharp,
-            TechIcons.MySql,
+            TechIcons.React,
+            TechIcons.Typescript,
+            TechIcons.Redux,
             TechIcons.Scss,
-            TechIcons.Js,
+            TechIcons.MySql,
         ],
         inProgress: true,
         links: {
