@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles, Theme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
+import Button from "@material-ui/core/Button";
 import ProfilePic from "./avatar.jpg";
 import TechnologyIcons from "./technologies";
 import Tooltip from "../Core/Tooltip";
@@ -17,8 +18,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     padding: theme.spacing(3),
     margin: theme.spacing(3, 0),
     display: "grid",
+    gap: "10px",
     alignItems: "center",
-    gridTemplateColumns: "350px auto",
+    gridTemplateColumns: "1fr 3.5fr",
     [theme.breakpoints.down("xs")]: {
       gridTemplateColumns: "100%",
       gridTemplateRows: "max-content auto",
@@ -54,12 +56,20 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   aboutP: {
     display: "grid",
+    gridTemplateRows: "min-content auto",
     gridColumn: 2,
-    padding: theme.spacing(2),
+    height: "100%",
+    width: "100%",
+    gap: "10px",
+    alignItems: "center",
     [theme.breakpoints.down("xs")]: {
       gridRow: 2,
       gridColumn: 1,
     },
+  },
+  bio: {
+    display: "grid",
+    gridRow: 2,
   },
   p1: {
     marginBottom: theme.spacing(2),
@@ -96,8 +106,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   showMore: {
     color: "lightblue",
-    textDecoration: "underline",
     cursor: "pointer",
+    gridRow: 1,
   },
 }));
 interface Props {}
@@ -129,50 +139,56 @@ const AboutMe: React.FC<Props> = () => {
         </div>
         <div className={classes.aboutP}>
           <div className={classes.showMore}>
-            <Typography variant="overline" onClick={handleToggleShortBio}>
+            <Button variant="text" onClick={handleToggleShortBio}>
               {shortBio ? "Click for long bio" : "Click for short bio"}
-            </Typography>
+            </Button>
           </div>
-          {shortBio ? (
-            <>
-              <Typography paragraph>
-                I am versatile Full Stack web developer. I am inspired by
-                excellence, success, and failure. I am a powerhouse of
-                positivity and value added. I thrive to learn how things
-                function together as a unit. My attention to detail is second to
-                none, and my actions demonstrate that I am principled and
-                operate from a platform of integrity in everything I do.
-              </Typography>
-            </>
-          ) : (
-            <>
-              <Typography paragraph>
-                Prior to being a Full Stack Engineer, I worked at a collision
-                shop (as my first ever job at 16 years old) in Seattle for 9
-                years starting out as an Administrative Assistant and I.T
-                manager eventually working my way as the shops Mechanic.
-              </Typography>
-              <Typography paragraph>
-                My love for cars, engines, and the need to know how things work
-                internally helped lead my success as a mechanic. After a short
-                time as a mechanic, my thirst for more kicked and I ventured to
-                go back to school for and become certified in high performance
-                tuning. Due to the lack of demand, I dabbled in some javascript
-                and shortly found my passion for programming.
-              </Typography>
+          <div className={classes.bio}>
+            {shortBio ? (
+              <>
+                <Typography paragraph>
+                  I am a versatile Full Stack web developer. The primary
+                  platform for my work style is excellence. I am inspired by my
+                  successes and failures. I am a powerhouse of positivity and am
+                  motivated to provide value added work in everything I do. I
+                  have the unique ability to see the big picture and the
+                  interconnectedness between things, yet can also thrive in the
+                  ability to understand the independent micro functionality in
+                  each part of what I do. My work ethic and actions demonstrate
+                  that I am principled and operate with integrity in everything
+                  I do.
+                </Typography>
+              </>
+            ) : (
+              <>
+                <Typography paragraph>
+                  Prior to being a Full Stack Engineer, I worked at a collision
+                  shop (as my first ever job at 16 years old) in Seattle for 9
+                  years starting out as an Administrative Assistant and I.T
+                  manager eventually working my way as the shops Mechanic.
+                </Typography>
+                <Typography paragraph>
+                  My love for cars, engines, and the need to know how things
+                  work internally helped lead my success as a mechanic. After a
+                  short time as a mechanic, my thirst for more kicked and I
+                  ventured to go back to school for and become certified in high
+                  performance tuning. Due to the lack of demand, I dabbled in
+                  some javascript and shortly found my passion for programming.
+                </Typography>
 
-              <Typography paragraph>
-                After graduating as a Full Stack Engineer, I accepted a job as a
-                consultant on an application that my old job wanted to build,
-                called Repairsage. Repairsage is a real-time production
-                management application targeted for the automotive repair
-                industry. My ability to deliver extraordinary results comes
-                straight from my my ability to identify the similarities between
-                my prior industry experience and my code. You can read more
-                about, and demo, Repairsage in my {projects} page.
-              </Typography>
-            </>
-          )}
+                <Typography paragraph>
+                  After graduating as a Full Stack Engineer, I accepted a job as
+                  a consultant on an application that my old job wanted to
+                  build, called Repairsage. Repairsage is a real-time production
+                  management application targeted for the automotive repair
+                  industry. My ability to deliver extraordinary results comes
+                  straight from my my ability to identify the similarities
+                  between my prior industry experience and my code. You can read
+                  more about, and demo, Repairsage in my {projects} page.
+                </Typography>
+              </>
+            )}
+          </div>
         </div>
       </Paper>
 
