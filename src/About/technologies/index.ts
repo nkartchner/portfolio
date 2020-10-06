@@ -22,31 +22,35 @@ import SocketIO from "./socketIO.png";
 import Typescript from "./typescript.svg";
 
 export interface TechIcon {
-  alt: string;
-  src: string;
+    alt: string;
+    src: string;
+    years: number;
+    isStrongest: boolean;
 }
 
-export default {
-  Html: { alt: "Html", src: Html },
-  Css: { alt: "Css", src: Css },
-  Scss: { alt: "Scss", src: Scss },
-  Js: { alt: "Js", src: Js },
-  Typescript: { alt: "Typescript", src: Typescript },
-  Angular10: { alt: "Angular10", src: Angular10 },
-  Ngrx: { alt: "Ngrx", src: Ngrx },
-  Express: { alt: "Express", src: Express },
-  Mongo: { alt: "Mongo", src: Mongo },
-  SocketIO: { alt: "SocketIO", src: SocketIO },
-  MERN: { alt: "MERN", src: MERN },
-  React: { alt: "React", src: React },
-  Redux: { alt: "Redux", src: Redux },
-  Expo: { alt: "Expo", src: Expo },
-  Python: { alt: "Python", src: Python },
-  Django: { alt: "Django", src: Django },
-  CSharp: { alt: "CSharp", src: CSharp },
-  Razor: { alt: "Razor", src: Razor },
-  MySql: { alt: "MySql", src: MySql },
-  Nginx: { alt: "Nginx", src: Nginx },
-  Git: { alt: "Git", src: Git },
-  Aws: { alt: "Aws", src: Aws },
+const icons: { [key: string]: TechIcon } = {
+    Html: { alt: "Html", src: Html, years: 3, isStrongest: false },
+    Css: { alt: "Css", src: Css, years: 3, isStrongest: false },
+    Scss: { alt: "Scss", src: Scss, years: 3, isStrongest: false },
+    Js: { alt: "Js", src: Js, years: 3, isStrongest: false },
+    Typescript: { alt: "Typescript", src: Typescript, years: 3, isStrongest: true },
+    Angular10: { alt: "Angular10", src: Angular10, years: 3, isStrongest: true },
+    Ngrx: { alt: "Ngrx", src: Ngrx, years: 3, isStrongest: true },
+    Express: { alt: "Express", src: Express, years: 3, isStrongest: true },
+    Mongo: { alt: "Mongo", src: Mongo, years: 3, isStrongest: true },
+    SocketIO: { alt: "SocketIO", src: SocketIO, years: 3, isStrongest: true },
+    MERN: { alt: "MERN", src: MERN, years: 2, isStrongest: false },
+    React: { alt: "React", src: React, years: 2, isStrongest: false },
+    Redux: { alt: "Redux", src: Redux, years: 2, isStrongest: false },
+    Expo: { alt: "Expo", src: Expo, years: 1, isStrongest: false },
+    Python: { alt: "Python", src: Python, years: 2, isStrongest: false },
+    Django: { alt: "Django", src: Django, years: 2, isStrongest: false },
+    CSharp: { alt: "CSharp", src: CSharp, years: 3, isStrongest: false },
+    Razor: { alt: "Razor", src: Razor, years: 3, isStrongest: false },
+    MySql: { alt: "MySql", src: MySql, years: 3, isStrongest: false },
+    Nginx: { alt: "Nginx", src: Nginx, years: 3, isStrongest: false },
+    Git: { alt: "Git", src: Git, years: 3, isStrongest: false },
+    Aws: { alt: "Aws", src: Aws, years: 3, isStrongest: false },
 };
+
+export default icons;

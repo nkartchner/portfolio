@@ -25,6 +25,7 @@
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
+        "build:prod": "PUBLIC_URL=/portfolio react-scripts build && cp -R build /var/www/Portfolio/build/portfolio",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },

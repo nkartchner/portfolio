@@ -148,7 +148,7 @@ const Project: React.FC<IProps> = (props) => {
                 }
                 title={props.title}
                 subheader={`${props.inProgress ? "In progress since " : ""}${
-                    MONTHS[props.startDate.getMonth()]
+                    MONTHS[props.startDate.getMonth() - 1]
                 } ${props.startDate.getFullYear()}`}
             />
 
